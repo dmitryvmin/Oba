@@ -1,0 +1,53 @@
+<!-- Footer -->
+
+<div ng-controller="footerController" in-view="ftr=true" class="footer-links">
+    <ul class="site-links">
+        <li><h3>{{ 'FOOTER_links' | translate }}</h3></li>
+        <li><img class="white-hr" src="img/hr-white.svg"></li>
+        <li><a ui-sref="home">{{ 'HEADER_home' | translate }}</a></li>
+        <li><a ui-sref="meet">{{ 'HEADER_meet' | translate }}</a></li>
+        <li><a ui-sref="gear">{{ 'HEADER_gear' | translate }}</a></li>
+        <li><a ui-sref="news">{{ 'HEADER_news' | translate }}</a></li>
+        <li><a ui-sref="interact">{{ 'HEADER_interact' | translate }}</a></li>
+    </ul>
+    <ul class="newsletter">
+      <li><h3>{{ 'FOOTER_newsletter' | translate }}</h3>
+      <li><img class="white-hr" src="img/hr-white.svg"></li>
+      <li>{{ 'FOOTER_newsletter_text' | translate }}</li>
+        <section id="newsletter" class="clearfix">
+
+            <!-- Begin MailChimp Signup Form -->
+            <form action="//obafemimartins9.us11.list-manage.com/subscribe/post?u=1ee0b05f1cb0b6a6a56840f44&amp;id=1477b616b0" method="post" id="mc-embedded-subscribe-form" name="mc-embedded-subscribe-form" class="validate" target="_blank" novalidate>
+                <div id="mc_embed_signup_scroll">
+                    <div class="mc-field-group field-container">
+                        <label for="mce-EMAIL">Email Address: </label>
+                        <input type="email" value="" name="EMAIL" class="required email" id="mce-EMAIL" placeholder="{{ 'FORM_email' | translate }}">
+                        <i class="icon-envelope-alt"></i>
+                    </div>
+                    <div id="mce-responses" class="clear">
+                        <div class="response" id="mce-error-response" style="display:none"></div>
+                        <div class="response" id="mce-success-response" style="display:none"></div>
+                    </div>    <!-- real people should not fill this in and expect good things - do not remove this or risk form bot signups-->
+                    <div style="position: absolute; left: -5000px;">
+                        <input type="text" name="b_1ee0b05f1cb0b6a6a56840f44_1477b616b0" tabindex="-1" value="">
+                    </div>
+                    <div class="controls-container">
+                        <input type="submit" value="{{ 'FORM_sub' | translate }}" name="subscribe" class="btn" id="mc-embedded-subscribe">
+                    </div>
+                </div>
+            </form>
+            <!--End mc_embed_signup-->
+
+        </section>
+    </ul>
+    <ul class="contact-links">
+        <li><h3>{{ 'HEADER_contact' | translate }}</h3></li>
+        <li><img class="white-hr" src="img/hr-white.svg"></li>
+        <li><a href ng-click="toggleContact(true)"><i class="fa fa-envelope-o"></i>{{ 'FOOTER_email' | translate }}</a></li>
+<!--         <li><a href="javascript:void(0)"><i class="fa fa-facebook-official"></i> Facebook</a></li> -->
+        <li><a href="https://twitter.com/obafemimartins" target="_blank"><i class="fa fa-twitter-square"></i> Twitter</a></li>
+        <li><a href="https://instagram.com/obagoal/" target="_blank"><i class="fa fa-instagram"></i> Instagram</a></li>
+    </ul>
+</div>
+
+<p>&copy; 2015 Marmonak Enterprises, LLC | All Rights Reserved. Website designed & built by Dmitry Minyaylov.</p>

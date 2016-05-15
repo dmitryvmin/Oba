@@ -1,0 +1,27 @@
+<!-- Contact -->
+
+<!-- <div ng-show="contactVisible" ng-class="contactVisible ? 'ng-leave' : 'ng-enter'" class="contact-oba" >
+-->
+<a ng-click="toggleContact()" class="close-out"><img ng-src="{{imgX}}" imageonload></a>
+<h2>{{ 'HEADER_contact' | translate }} Oba</h2>
+<section>
+    <div class="contact-image">
+        <img ng-src="{{imgOba}}" imageonload>
+    </div>
+    <div ng-controller="formController" class="contact-box" >
+
+    <form ng-submit="submitForm()" class="contactForm" autocomplete="off" novalidate>
+      <div ng-class="{'submissionMessage' : submission}" ng-bind="submissionMessage"></div>
+      <input placeholder="{{ 'FORM_name' | translate }}" type="text" name="name" ng-model="formData.name" required>
+      <span class="error" ng-show="errorName">Please include your name</span>
+      <input placeholder="{{ 'FORM_email' | translate }}" type="email" name="email" ng-model="formData.email" required>
+      <span class="error" ng-show="errorEmail">Please include a valid email</span>
+      <div class="flex">
+      <textarea placeholder="{{ 'FORM_message' | translate }}" name="message" ng-model="formData.message" rows="4" required></textarea>
+      </div>
+      <span class="error" ng-show="errorTextarea">Please include a message</span>
+      <button class="btn" type="submit">{{ 'FORM_send' | translate }}</button>
+    </form>
+
+    </div>
+</section>

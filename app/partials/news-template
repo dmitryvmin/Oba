@@ -1,0 +1,11 @@
+<div class="item">
+    <img ng-src="{{article.image}}">
+    <h2 class="title">{{article.title}}</h2>
+    <div class="date">{{article.date}}</div>
+    <p>{{article.content}}</p>
+    <div ng-click={{article.link}} class="button-base button-flip">
+        <div class="light">Read Article</div>
+        <div class="light">Read Article</div>
+    </div>
+    <div class="line"></div>
+</div>

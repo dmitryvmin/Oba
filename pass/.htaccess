@@ -1,0 +1,4 @@
+AuthType Basic  
+AuthName "restricted area"  
+AuthUserFile /home/paynes2/public_html/obafemimartins9.com/dev/.htpasswd
+require valid-user

@@ -1,0 +1,99 @@
+<!-- meet.html -->
+
+<div ng-controller="parallaxController" class="page-banner">
+    <h1>{{ 'HEADER_meet' | translate }}</h1>
+    <div class="overlay"></div>
+    <div parallax-background parallax-ratio="0.5" class="photo meet-oba"></div>
+</div>
+
+<div class="content-container">
+    <section>
+        <h2 class="mls-stats">{{ 'MEET_stats' | translate }}</h2>
+    </section>
+    <section>
+        <div class="page-stats">
+            <div class="stat-container">
+                <h3>{{ 'MEET_starts' | translate }}</h3>
+                <div odometer value="65" class="odometer"></div>
+                <img src="img/hr.svg">
+            </div>
+            <div class="stat-container">
+                <h3>{{ 'MEET_minutes' | translate }}</h3>
+                <div odometer value="5691" class="odometer"></div>
+                <img src="img/hr.svg">
+            </div>
+            <div class="stat-container">
+                <h3>{{ 'MEET_goals' | translate }}</h3>
+                <div odometer value="40" class="odometer"></div>
+                <img src="img/hr.svg">
+            </div>
+            <div class="stat-container">
+                <h3>{{ 'MEET_assists' | translate }}</h3>
+                <div odometer value="22" class="odometer"></div>
+                <img src="img/hr.svg">
+            </div>
+        </div>
+    </section>
+
+    <section>
+        <div slick-slider="{{obaSliderMeet}}" class="meet-page-slider">
+            <div><img ng-src="{{meetImg[0]}}"></div>
+            <div><img ng-src="{{meetImg[1]}}"></div>
+            <div><img ng-src="{{meetImg[2]}}"></div>
+            <div><img ng-src="{{meetImg[3]}}"></div>
+            <div><img ng-src="{{meetImg[4]}}"></div>
+            <div><img ng-src="{{meetImg[5]}}"></div>
+        </div>
+    </section>
+
+    <section>
+
+        <div class="page-content meet-page-content">
+
+            <p>{{ 'MEET_1' | translate }}</p>
+
+            <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-one">
+                <img src="{{ 'QT_1' | translate }}">
+            </div>
+
+            <p>{{ 'MEET_2' | translate }}</p>
+
+            <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-two">
+                <img src="{{ 'QT_2' | translate }}">
+            </div>
+
+            <p>{{ 'MEET_3' | translate }}</p>
+
+           <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-one">
+                <img src="{{ 'QT_3' | translate }}">
+            </div>
+
+            <p>{{ 'MEET_4' | translate }}</p>
+
+            <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-two">
+                <img src="{{ 'QT_4' | translate }}">
+            </div>
+
+            <p>{{ 'MEET_5' | translate }}</p>
+
+            <p>{{ 'MEET_6' | translate }}</p>
+
+            <p>{{ 'MEET_7' | translate }}</p>
+
+            <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-one">
+                <img src="{{ 'QT_5' | translate }}">
+            </div>
+
+            <p>{{ 'MEET_8' | translate }}</p>
+
+            <div parallax-background parallax-ratio="0.5" class="meet-quote meet-quote-two">
+                <img src="{{ 'QT_6' | translate }}">
+            </div>
+
+            <img class="oba-hr" src="img/hr.svg">
+
+        </div>
+
+    </section>
+
+</div>

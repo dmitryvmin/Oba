@@ -1,0 +1,29 @@
+<!-- news.html -->
+
+<div ng-controller="parallaxController" class="page-banner">
+    <div class="overlay"></div>
+        <div parallax-background parallax-ratio="0.5" class="photo oba-news">
+             <h1>Oba {{ 'HEADER_news' | translate }}</h1>
+        </div>
+</div>
+
+<div class="content-container">
+    <section class="news-section">
+        <ul class="dynamic-grid" angular-grid="articles" grid-width="300" gutter-size="20" angular-grid-id="gallery" refresh-on-img-load="true" >
+            <li data-ng-repeat="article in articles" class="grid" ng-cloak>
+                <img class="grid-img" ng-src="{{article.image}}">
+                <h2 class="title">{{article.title}}</h2>
+                <div class="date">{{article.date}}</div>
+                <p>{{article.content}}</p>
+                <div ng-click="linker({link:article.link})" class="button-base button-flip">
+                    <div class="light">Read Article</div>
+                    <div class="light">Read Article</div>
+                </div>
+                <div class="line"></div>
+            </li>
+        </ul>
+    </section>
+</div>
+
+
+

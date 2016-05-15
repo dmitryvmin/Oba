@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html ng-app="obaApp">
+    <head>
+        <title>Official Website of Obafemi Martins</title>
+        <link rel="icon" type="image/x-icon" href="img/logo/favicon.ico" />
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <meta name="description" content="Official Website of Obafemi Martins">
+        <meta property="og:image" content="http://obafemimartins9.com/img/home/slideshow/oba-1-desat-min.jpg"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <!-- styles -->
+        <link rel="stylesheet" type="text/css" href="bower_components/odometer/themes/odometer-theme-default.css" />
+        <link rel="stylesheet" type="text/css" href="bower_components/slick-carousel/slick/slick.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/animate.css/animate.min.css">
+        <link rel="stylesheet" type="text/css" href="bower_components/videojs/dist/video-js/video-js.min.css" rel="stylesheet">
+        <link rel="stylesheet" type="text/css" href="css/style.min.css">
+
+        <!-- Google Analytics -->
+        <script>
+          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+          (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+          m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+          })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+          ga('create', 'UA-68678424-1', 'auto');
+          ga('send', 'pageview');
+        </script>
+
+    </head>
+
+    <body ng-controller="mainController">
+
+        <div class="curtain" ng-class="{fadeout: is('home')}"></div>
+
+        <!-- server-side fallback -->
+        <videogular class="video-background" vg-auto-play="config.autoPlay" vg-loop="config.loop" vg-preload="config.preload">
+            <vg-media vg-src="config.sources"></vg-media>
+        </videogular>
+
+        <!-- Twitter feed ticker -->
+        <div twitter-fetcher class="tweets" id="latest-tweets">Loading...</div>
+
+        <!-- Navigation -->
+        <header class="navigation" role="banner" ng-cloak>
+            <div class="navigation-wrapper">
+                <a ng-class="{'active':$state.includes('home')}" ng-click="collapseMenu()" ui-sref="home" class="logo">
+                    <img src="img/logo/oba-logo-white-small.png" alt="Logo Image">
+                </a>
+                <a ng-init="navCollapsed = true" ng-click="navCollapsed = !navCollapsed" class="navigation-menu-button"><img src="img/theme/menu-hamburger.svg"></a>
+                <nav role="navigation">
+                    <ul ng-class="{'nav-closed': navCollapsed, 'nav-open': !navCollapsed}" class="navigation-menu">
+                        <li ui-sref-active="active" ng-click="collapseMenu()" class="nav-link"><a ui-sref="meet">{{ 'HEADER_meet' | translate }}</a></li>
+                        <li ui-sref-active="active" ng-click="collapseMenu()" class="nav-link"><a ui-sref="gear">{{ 'HEADER_gear' | translate }}</a></li>
+                        <li ui-sref-active="active" ng-click="collapseMenu()" class="nav-link"><a ui-sref="news">{{ 'HEADER_news' | translate }}</a></li>
+                        <li ui-sref-active="active" ng-click="collapseMenu()" class="nav-link"><a ui-sref="interact">{{ 'HEADER_interact' | translate }}</a></li>
+                        <li ui-sref-active="active" ng-click="collapseMenu()" class="nav-link"><a ng-click="toggleContact()" href>{{ 'HEADER_contact' | translate }}</a></li>
+                        <button class="language-btn-ch" ng-click="changeLanguage('ch')" translate=""></button>
+                        <button class="language-btn-en" ng-click="changeLanguage('en')" translate=""></button>
+                    </ul>
+                </nav>
+            </div>
+        </header>
+
+        <!-- Fixed social media links -->
+        <ul class="sidebar-social-links">
+            <li><a class="sidebar-social-instagram" href="https://instagram.com/obagoal/" target="_blank"><i class="fa fa-instagram"></i></a></li>
+            <li><a class="sidebar-social-twitter" href="https://twitter.com/obafemimartins" target="_blank"><i class="fa fa-twitter"></i></a></li>
+            <li><a class="sidebar-social-email" href ng-click="toggleContact()"><i class="fa fa-envelope"></i></a></li>
+        </ul>
+
+        <!-- Contact -->
+        <div ng-controller="contactController" ng-show="contactVisible">
+            <div ng-include src="'app/partials/contact.html'" class="contact-oba om-animation" ng-class="{'animated fadeInUp': contactVisible, 'fadeOutUp': !contactVisible}"></div>
+        </div>
+
+        <!-- Views -->
+        <div ui-view class="page" autoscroll="false"></div>
+
+        <!-- Footer -->
+        <footer ng-include src="'app/partials/footer.html'" ng-class="{ftclear: is('home')}" role="contentinfo"></footer>
+
+        <!-- JS -->
+        <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+        <script src="app/js/libs/twitter-fetcher/twitter-fetcher.js"></script>
+        <script src="https://www.youtube.com/iframe_api"></script>
+        <script src="bower_components/odometer/odometer.min.js"></script>
+        <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+        <script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
+        <script src="bower_components/angular/angular.min.js"></script>
+        <!--    <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
+        <script src="bower_components/angular-slick/dist/slick.js"></script> -->
+<!--         <script src="bower_components/angular-touch/angular-touch.js"></script>
+        <script src="bower_components/angular-carousel/src/angular-carousel.js"></script> -->
+        <script src="bower_components/angular-masonry/angular-masonry.js"></script>
+        <script src="bower_components/angular-animate/angular-animate.min.js"></script>
+        <script src="bower_components/angular-inview/angular-inview.js"></script>
+        <script src="bower_components/angular-resource/angular-resource.min.js"></script>
+        <script src="bower_components/angulargrid/angulargrid.min.js"></script>
+        <script src="bower_components/angular-ui/build/angular-ui.min.js"></script>
+        <script src="bower_components/angular-sanitize/angular-sanitize.min.js"></script>
+        <script src="bower_components/angular-dynamic-layout/dist/angular-dynamic-layout.min.js"></script>
+        <script src="bower_components/angular-parallax/scripts/angular-parallax.js"></script>
+        <script src="bower_components/angular-youtube-mb/src/angular-youtube-embed.js"></script>
+        <script src="bower_components/videogular/videogular.min.js"></script>
+        <script src="bower_components/angular-ui-router/release/angular-ui-router.min.js"></script>
+        <script src="bower_components/videogular-controls/vg-controls.min.js"></script>
+        <script src="bower_components/videogular-overlay-play/vg-overlay-play.min.js"></script>
+        <script src="bower_components/videogular-poster/vg-poster.min.js"></script>
+        <script src="bower_components/videogular-buffering/vg-buffering.min.js"></script>
+        <script src="bower_components/angular-translate/angular-translate.js"></script>
+        <script src="http://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js"></script>
+        <script src="bower_components/videojs/dist/video-js/video.js"></script>
+        <script src="bower_components/promise-tracker/promise-tracker.js"></script>
+        <script src="app/js/libs/pongstagram/pongstagram.js"></script>
+        <script src="app/js/libs/bootstrap-modal/modalmanager.js"></script>
+        <script src="app/js/libs/bootstrap-modal/bootstrap-modal.js"></script>
+        <script src="app/js/libs/oba-interact-tiles/oba-interact-tiles.js"></script>
+        <script src="app/app.js"></script>
+        <script src="app/services.js"></script>
+        <script src="app/directives.js"></script>
+        <script src="app/controllers.js"></script>
+
+        <script>
+        // TODO: create a derective for the twitter fetcher
+        $(document).ready(function() {
+
+            var LatestTweets = {
+                init: function () {
+                    twitterFetcher.fetch({
+                        id: '589594498209959937',
+                        domId: 'latest-tweets',
+                        showImages: false
+                    });
+                }
+            };
+            LatestTweets.init();
+
+            // smooth scrolling hack for IE
+            // TODO: create angular service
+            if(navigator.userAgent.match(/Trident\/7\./)) { // if IE
+                $('body').on("mousewheel", function () {
+                    // remove default behavior
+                    event.preventDefault();
+
+                    //scroll without smoothing
+                    var wheelDelta = event.wheelDelta;
+                    var currentScrollPosition = window.pageYOffset;
+                    window.scrollTo(0, currentScrollPosition - wheelDelta);
+                });
+            }
+        });
+        </script>
+
+    </body>
+
+</html>
+
+
+
+
+
