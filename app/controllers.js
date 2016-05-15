@@ -233,8 +233,21 @@ angular.module('obaApp')
     });
 }])
 
-.controller('interactController', function($scope) {
+.controller('interactController', ['$scope','twitterData', function($scope, twitterData) {
     $scope.title = 'Interact';
+
+    // Twitter JSONP data for the tiles
+
+    twitterData.getTwitterData()
+    .then(function(data) {
+        console.log('twitter data: ', data);
+
+        debugger;
+        $scope.twitterData = data;
+
+    });
+
+    // debugger;
 
     // videos
     $scope.videos = [
@@ -249,7 +262,7 @@ angular.module('obaApp')
         showinfo: 0
     ,   modestbranding: 1
     }
-})
+}])
 
 .controller('parallaxController', function($scope) {})
 

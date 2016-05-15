@@ -169,6 +169,7 @@ var interactTiles = function() {
             }
         },
         callback: function(a) {
+            debugger;
             var c = document.createElement("div");
             c.innerHTML = a.body;
             "undefined" === typeof c.getElementsByClassName && (u = !1);
@@ -179,11 +180,12 @@ var interactTiles = function() {
                 b = [],
                 n = [],
                 e = 0;
+
             if (u)
-                for (c = c.getElementsByClassName("tweet"); e <
+                for (c = c.getElementsByClassName("timeline-Tweet"); e <
                     c.length;) {
-                    0 < c[e].getElementsByClassName("retweet-credit").length ? b.push(!0) : b.push(!1);
-                    if (!b[e] || b[e] && z) a.push(c[e].getElementsByClassName("e-entry-title")[0]), n.push(c[e].getAttribute("data-tweet-id")), f.push(c[e].getElementsByClassName("p-author")[0]), g.push(c[e].getElementsByClassName("dt-updated")[0]), void 0 !== c[e].getElementsByClassName("inline-media")[0] ? h.push(c[e].getElementsByClassName("inline-media")[0]) : h.push(void 0);
+                    0 < c[e].getElementsByClassName("timeline-Tweet-retweet").length ? b.push(!0) : b.push(!1);
+                    if (!b[e] || b[e] && z) a.push(c[e].getElementsByClassName("timeline-Tweet-text")[0]), n.push(c[e].getAttribute("data-tweet-id")), f.push(c[e].getElementsByClassName("timeline-Tweet-author")[0]), g.push(c[e].getElementsByClassName("dt-updated")[0]), void 0 !== c[e].getElementsByClassName("timeline-Tweet-media")[0] ? h.push(c[e].getElementsByClassName("inline-Tweet-media")[0]) : h.push(void 0);
                     e++
                 } else
                     for (c = m(c, "tweet"); e < c.length;) a.push(m(c[e], "e-entry-title")[0]),

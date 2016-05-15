@@ -29,9 +29,37 @@ angular.module('obaApp')
             return def.promise;
         }
     }
+])
+
+.factory('twitterData', ['$http', '$q',
+    function twitterData($http, $q) {
+       return {
+         getTwitterData: function() {
+           var def = $q.defer();
+           var url = "https://cdn.syndication.twimg.com/widgets/timelines/589594498209959937?&amp;lang=en&amp;suppress_response_codes=true&amp;rnd=" + Math.random() + "&amp;callback=JSON_CALLBACK";
+         // $http.get(url).success(function (data, status, headers, config) {
+         //        console.log(data);
+         //        def.resolve(data);
+         //    }).error(function (data, status, headers, config) {
+         //        console.log(status);
+         //        def.reject(status);
+         //    });
+          //  return def.promise;
+          $http.jsonp(url).
+            success(function(data, status, headers, config) {
+            //what do I do here?
+            console.log(data);
+                def.resolve(data);
+            }).
+        error(function(data, status, headers, config) {
+            def.reject("Failed to get Twitter data");
+        });
+
+return def.promise;
+     }
+    } 
+}
 ]);
-
-
 
 
 
