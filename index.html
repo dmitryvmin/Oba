@@ -38,7 +38,9 @@
         </videogular>
 
         <!-- Twitter feed ticker -->
-        <div twitter-fetcher class="tweets" id="latest-tweets">Loading...</div>
+        <div ui-if="twitter-json-ready">
+            <div tweets="tweets" class="tweets" id="latest-tweets"></div>
+        </div>
 
         <!-- Navigation -->
         <header class="navigation" role="banner" ng-cloak>
@@ -83,6 +85,7 @@
         <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
         <script src="app/js/libs/twitter-fetcher/twitter-fetcher.js"></script>
         <script src="https://www.youtube.com/iframe_api"></script>
+        <!-- <script src="node_modules/html-to-json/lib/htmlToJson.js"></script> -->
         <script src="bower_components/odometer/odometer.min.js"></script>
         <script src="bower_components/slick-carousel/slick/slick.min.js"></script>
         <script src="bower_components/imagesloaded/imagesloaded.pkgd.min.js"></script>
@@ -124,16 +127,16 @@
         // TODO: create a derective for the twitter fetcher
         $(document).ready(function() {
 
-            var LatestTweets = {
-                init: function () {
-                    twitterFetcher.fetch({
-                        id: '589594498209959937',
-                        domId: 'latest-tweets',
-                        showImages: false
-                    });
-                }
-            };
-            LatestTweets.init();
+            // var LatestTweets = {
+            //     init: function () {
+            //         twitterFetcher.fetch({
+            //             id: '589594498209959937',
+            //             domId: 'latest-tweets',
+            //             showImages: false
+            //         });
+            //     }
+            // };
+            // LatestTweets.init();
 
             // smooth scrolling hack for IE
             // TODO: create angular service

@@ -4,7 +4,7 @@
 
 angular.module('obaApp')
 
-.controller('mainController', ['$scope', '$state', '$sce', '$translate', function($scope, $state, $sce, $translate) {
+.controller('mainController', ['$scope', '$rootScope', '$state', '$sce', '$translate', 'twitterData', 'dataService', function($scope, $rootScope, $state, $sce, $translate, twitterData, dataService) {
 
     // TODO: Setup up controller instance as the view-model
     // var vm = this;
@@ -66,6 +66,28 @@ angular.module('obaApp')
     $scope.changeLanguage = function (langKey) {
         $translate.use(langKey);
     };
+
+    // Twitter scrolling ticker directive
+
+    twitterData.getTwitterData()
+        .then(function(data) {
+            $scope.tweets = data.tweets;
+            //$scope.$broadcast('twitter_json_ready');
+            $scope.twitter_json_ready = true;
+            // dataService.set(true);
+            // dataService.store(data.tweets);
+            console.log('twitter data:', data.tweets);
+
+        });
+    // twitterData.getTwitterData()
+    // .then(function(data) {
+    //     console.log('twitter data: ', data);
+
+    //     $scope.twitterData = data;
+
+    // });
+
+
 }])
 
 .controller('homeController', ['$scope', '$sce', function($scope) {
@@ -233,21 +255,8 @@ angular.module('obaApp')
     });
 }])
 
-.controller('interactController', ['$scope','twitterData', function($scope, twitterData) {
+.controller('interactController', ['$scope', '$rootScope', 'dataService', 'twitterData', function($scope, $rootScope, dataService, twitterData) {
     $scope.title = 'Interact';
-
-    // Twitter JSONP data for the tiles
-
-    twitterData.getTwitterData()
-    .then(function(data) {
-        console.log('twitter data: ', data);
-
-        debugger;
-        $scope.twitterData = data;
-
-    });
-
-    // debugger;
 
     // videos
     $scope.videos = [
@@ -262,6 +271,16 @@ angular.module('obaApp')
         showinfo: 0
     ,   modestbranding: 1
     }
+
+    twitterData.getTwitterData()
+        .then(function(data) {
+            $scope.inttweets = data.tweets;
+            $scope.twitter_json_ready = true;
+            debugger;
+        });
+
+    // $scope.inTweetsReady = dataService.getBool();
+    // $scope.inTweets = dataService.getData();
 }])
 
 .controller('parallaxController', function($scope) {})

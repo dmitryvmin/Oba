@@ -24,22 +24,64 @@ angular.module('obaApp')
     }
 })
 
-.directive('twitterFetcher', function () {
+// .directive('twitterFetcher', function () {
+//     return {
+//         restrict: 'A',
+//         link: function(scope, elem, attrs) {
+//             var LatestTweets = {
+//                 init: function () {
+//                     twitterFetcher.fetch({
+//                         id: '589594498209959937',
+//                         domId: 'latest-tweets',
+//                         showImages: false
+//                     });
+//                 }
+//             };
+//             LatestTweets.init();
+//             console.log('Twitter Fetcher directive active');
+//         }
+//     }
+// })
+
+.directive('tweets', function () {
     return {
         restrict: 'A',
-        link: function(scope, elem, attrs) {
-            var LatestTweets = {
-                init: function () {
-                    twitterFetcher.fetch({
-                        id: '589594498209959937',
-                        domId: 'latest-tweets',
-                        showImages: false
-                    });
-                }
-            };
-            LatestTweets.init();
-            console.log('Twitter Fetcher directive active');
-        }
+        scope: {
+            tweets: '=tweets'
+        },
+        template: '<ul><li ng-repeat="tweet in tweets"><p class="tweet" ng-bind-html="tweet.html">{{tweet.html}}</p></li></ul>'
+        // ,link: function(scope, elem, attrs) {
+        //     // scope.$watch('locations', function(locations) {
+        //     //     angular.forEach(locations, function(location, key) {
+        //     //       // do something
+        //     //     });
+        //     //   });
+        //     debugger;
+        //     scope.$on('twitter_json_ready', function() {
+        //         console.log('Twitter Fetcher directive active');
+        //     });
+        // }
+    }
+})
+
+.directive('inttweets', function () {
+    return {
+        restrict: 'E',
+        scope: {
+            inttweets: '=inttweets'
+        },
+        template: '<ul><li ng-repeat="tweet in inttweets"><p class="tweet" ng-bind-html="tweet.html">{{tweet.html}}</p></li></ul>'
+        // ,link: function(scope, elem, attrs) {
+        //     // scope.$watch('locations', function(locations) {
+        //     //     angular.forEach(locations, function(location, key) {
+        //     //       // do something
+        //     //     });
+        //     //   });
+        //     debugger;
+        //     scope.$on('twitter_json_ready', function() {
+        //         console.log('Twitter Fetcher directive active');
+        //     });
+        // }
     }
 })
 
