@@ -1,0 +1,103 @@
+//@import "../libs/neat";
+
+// Common layout components and grid classes
+
+// section container
+section {
+    @include outer-container;
+
+    // section heading
+    .heading {
+        @include span-columns(12);
+    }
+
+    .news-story {
+
+        @include span-columns(12);
+
+        @include media($mobile) {
+            @include span-columns(6);
+            @include omega(2n);
+        }
+
+        @include media($desktop) {
+            @include span-columns(3);
+            @include omega-reset(2n);
+            @include omega(4n);
+        }
+
+        background-color: #eee;
+
+        img {
+            max-width: 100%;
+        }
+    }
+
+    .social-icon {
+        @include span-columns(4);
+        text-align: center;
+
+        i {
+            font-size: 40px;
+        }
+    }
+
+}
+
+.content-container {
+    background-color: white;
+}
+
+.page-content {
+
+    @include span-columns(12);
+
+    @include media($mobile) {
+        @include span-columns(10);
+        @include shift(1);
+    }
+
+}
+
+
+
+
+.interact-wrap {
+
+
+  @include display(flex);
+  @include flex-wrap(wrap);
+
+    .interact-col-sm {
+         @include flex-grow(1);
+    }
+
+    .interact-col-md {
+        @include flex-grow(2);
+    }
+
+    .interact-twitter {
+        height: 140px;
+        width: 100%;
+        border: 1px solid white;
+        background-color: rgb(145, 205, 248);
+        opacity: 0.5;
+    }
+
+    .interact-instagram {
+        height: 210px;
+        width: 100%;
+        //background-image: url('https://igcdn-photos-c-a.akamaihd.net/hphotos-ak-xpf1/t51.2885-15/11007758_625231177578226_1358776392_n.jpg"');
+        background-color: #A991F8;
+          background-size: 100%;
+                  opacity: 0.5;
+    }
+
+    .interact-youtube {
+        height: 420px;
+        width: 100%;
+        background-color: #D45452;
+        opacity: 0.5;
+    }
+
+}

@@ -1,0 +1,215 @@
+// move form to a form page
+
+
+// these variable are only for the form
+$base: white;
+$text: white;
+$invalid: #E91E63;
+$width: 400px;
+$cubic: cubic-bezier(.64,.09,.08,1);
+
+.contact-oba {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    -webkit-transition: 1ms opacity ease;
+       -moz-transition: 1ms opacity ease;
+        -ms-transition: 1ms opacity ease;
+         -o-transition: 1ms opacity ease;
+            transition: 1ms opacity ease;
+
+    background-color: rgba(0,0,0,0.9);
+    width: 100%;
+    height: 100%;
+
+    h2 {
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        margin: 15px 0;
+    }
+
+    form {
+
+        //width: $width + 60px;
+        margin: 120px auto 0;
+        color: $text;
+
+        input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+            transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out, visibility 0.3s ease-in-out;
+        }
+
+        input, textarea {
+
+            $underline: '../img/underline.svg', '../img/underline2.svg', '../img/underline3.svg', '../img/underline4.svg';
+
+            margin: 28px 25px 10px;
+            //width: $width;
+            width: 100%;
+            display: block;
+            border: none;
+            padding: 20px 0 10px;
+            //border-bottom: solid 1px $base;
+            //background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $base 4%);
+            //background-position: -$width 0;
+            //background-size: $width 100%;
+            //background-repeat: no-repeat;
+            //transition: background 0.3s $cubic;
+            resize: none;
+            overflow: hidden;
+            background-color: transparent;
+
+                @for $i from 1 through length($underline) {
+
+                    &:nth-child(#{$i}) {
+                        $background-from-list: nth($underline, $i);
+                        background: url($background-from-list) no-repeat bottom left;
+                    }
+                }
+
+            &:focus::-webkit-input-placeholder {
+                color: $base;
+            }
+
+            &:focus, &:valid {
+                box-shadow: none;
+                outline: none;
+                //background-position: 0 0;
+
+                &::-webkit-input-placeholder {
+                    font-size: 0.8em;
+                    transform: translateY(-20px);
+                    visibility: visible !important;
+                    opacity: 1;
+                }
+            }
+        }
+
+        input[type="email"] {
+            // background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $base 4%);
+            //background-position: -400px 0;
+            //background-repeat: no-repeat;
+            //transition: border-bottom 0.3s ease, background 0.3s ease;
+            background-color: transparent;
+
+            &~span.validation-text {
+                position: absolute;
+                visibility: hidden;
+                font-size: 0.6em;
+                width: $width;
+                margin-left: 25px;
+                margin-top:-5px;
+                color: white;
+                transition: color 0.3s ease-in-out;
+            }
+
+            &:not([value=""]) {
+
+                &::-webkit-input-placeholder {
+                    font-size: 0.8em;
+                    transform: translateY(-20px);
+                    visibility: visible !important;
+                    opacity: 1;
+                }
+
+                &:focus::-webkit-input-placeholder {
+                    color: $base;
+                }
+
+                &:focus:not(:valid)::-webkit-input-placeholder {
+                    color: $invalid;
+                }
+            }
+
+            // &:focus {
+            //     background-position: 0 0;
+
+            //     &:not(:valid):not([value=""]) {
+            //         border-bottom: solid 1px $invalid;
+            //         background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $invalid 4%);
+            //     }
+            // }
+
+            &:not(:focus):not(:valid):not([value=""]) {
+
+                &::-webkit-input-placeholder {
+                    color: $invalid;
+                }
+
+                // border-bottom: solid 1px $invalid;
+                // background-position: 0 0 ;
+                // background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $invalid 4%);
+
+                &~span.validation-text {
+                    visibility: visible;
+                    color: $invalid;
+                }
+            }
+        }
+
+        .flex {
+            display: flex;
+            align-items: stretch;
+
+            textarea {
+                line-height: 120%;
+            }
+        }
+
+    }
+
+
+
+
+
+    section {
+
+        @include outer-container;
+
+        .contact-image {
+
+            @include span-columns(12);
+
+            @include media($mobile) {
+                @include span-columns(6);
+                @include omega(2n);
+            }
+
+            img {
+                width: 100%;
+                margin-top: 80px;
+                opacity: 1;
+            }
+        }
+
+        .contact-box {
+
+            @include span-columns(12);
+
+            @include media($mobile) {
+                @include span-columns(6);
+                @include omega(2n);
+            }
+
+            h2 {
+                color: white;
+            }
+
+        }
+    }
+
+    .close-out {
+        margin: 20px;
+        cursor: pointer;
+
+        img {
+            float: right;
+            margin: 20px;
+        }
+    }
+
+}
+
+
+

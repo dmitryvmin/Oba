@@ -1,0 +1,39 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - Icons and images
+// - - - - - - - - - - - - - - - - - - -
+
+.hr-white {
+    margin: 0 auto 20px;
+    background: url(../img/hr-white.svg) no-repeat;
+    height: 20px;
+    background-size: 100%;
+}
+
+// Used on the odometer; see components/odometer.scss
+.oba-hr {
+    margin-left: auto;
+    margin-right: auto;
+    display: block;
+    width: 400px;
+    max-width: 100%;
+    margin-top: 3em;
+}
+
+// if there is a way to elimiate date styling from the rolling twitter feed in the header, .date can be an independent class
+.date {
+    // text-align:center;
+    font-size:12px;
+    margin-bottom:5px;
+    margin-left: 15px;
+    //background: #253B4C;
+    color: #253B4C;
+    padding: 10px 30px;
+    // display: inline-block;
+    // float: right;
+    // @include clearfix;
+    background: url(../img/hr-med-1.svg) no-repeat;
+    color: white;
+    width: 150px;
+    font-weight: 700;
+}
+

@@ -1,0 +1,215 @@
+.cards {
+  @include display(flex);
+  @include flex-wrap(wrap);
+  @include justify-content(space-between);
+}
+
+.card {
+  $base-border-color: $color-brand-blue !default;
+  //$base-border-radius: 3px !default;
+  $base-background-color: white !default;
+  $base-spacing: 1.5em !default;
+  $action-color: #477DCA !default;
+  $base-link-color: $action-color !default;
+  $dark-gray: #333 !default;
+  $base-font-color: $dark-gray !default;
+  $card-border-color: $base-border-color;
+  $card-border: 1px solid $card-border-color;
+  $card-background: #fff;
+  $card-header-background: $card-background;
+  $card-hover-background: darken($card-background, 3%);
+  $card-image-background: #DBD199;
+  $card-image-hover-background: darken($card-image-background, 2%);
+  $card-margin: 1em;
+
+  @include flex-basis(15em);
+  @include flex-grow(1);
+  @include transition (all 0.2s ease-in-out);
+  background-color: $card-background;
+  //border-radius: $base-border-radius;
+  //border-bottom: $card-border;
+  //box-shadow: 0 2px 4px darken($base-background-color, 10%);
+  cursor: pointer;
+  margin: 0 $card-margin $base-spacing $card-margin;
+  position: relative;
+
+  // Hover effect
+  -webkit-perspective: 1700px;
+  -moz-perspective: 1700px;
+  perspective: 1700px;
+  -webkit-perspective-origin: 0 50%;
+  -moz-perspective-origin: 0 50%;
+  perspective-origin: 0 50%;
+
+  .card-flip-container {
+    -webkit-transform-style: preserve-3d;
+    -moz-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+
+    &:hover img {
+      // -webkit-transform: translateY(-25%);
+      // -moz-transform: translateY(-25%);
+      // -ms-transform: translateY(-25%);
+      // transform: translateY(-25%);
+      -webkit-transform: scale(1.3);
+      -moz-transform: scale(1.3);
+      -ms-transform: scale(1.3);
+      transform: scale(1.3);
+    }
+
+    &:hover .card-caption {
+      opacity: 1;
+      -webkit-transform: rotateY(0deg);
+      -moz-transform: rotateY(0deg);
+      transform: rotateY(0deg);
+      -webkit-transition: -webkit-transform 0.4s, opacity 0.1s;
+      -moz-transition: -moz-transform 0.4s, opacity 0.1s;
+      transition: transform 0.4s, opacity 0.1s;
+    }
+  }
+
+  // .card-border-container {
+  //   &:before,
+  //   &:after {
+  //     position: absolute;
+  //     top: 0px;
+  //     right: 0px;
+  //     bottom: 0px;
+  //     left: 0px;
+  //     content: '';
+  //     opacity: 0;
+  //     -webkit-transition: opacity 0.35s, -webkit-transform 0.35s;
+  //     transition: opacity 0.35s, transform 0.35s;
+  //   }
+
+  //   &:before {
+  //     border-top: 1px solid $color-brand-blue;
+  //     border-bottom: 1px solid $color-brand-blue;
+  //     -webkit-transform: scale(0,1);
+  //     transform: scale(0,1);
+  //   }
+
+  //   &:after {
+  //     border-right: 1px solid $color-brand-blue;
+  //     border-left: 1px solid $color-brand-blue;
+  //     -webkit-transform: scale(1,0);
+  //     transform: scale(1,0);
+  //   }
+  // }
+
+  // &:hover .card-border-container:before, &:hover .card-border-container:after {
+  //   opacity: 1;
+  //   -webkit-transform: scale(1);
+  //   transform: scale(1);
+  // }
+
+
+  .card-caption {
+    height: 33%;
+    width: 100%;
+    opacity: 0;
+    -webkit-backface-visibility: hidden;
+    -moz-backface-visibility: hidden;
+    backface-visibility: hidden;
+    -webkit-transform-origin: 100% 100%;
+    -moz-transform-origin: 100% 100%;
+    transform-origin: 100% 100%;
+    -webkit-transform: rotateX(180deg);
+    -moz-transform: rotateX(180deg);
+    transform: rotateX(180deg);
+    -webkit-transition: -webkit-transform 0.4s, opacity 0.1s 0.3s;
+    -moz-transition: -moz-transform 0.4s, opacity 0.1s 0.3s;
+    transition: transform 0.4s, opacity 0.1s 0.3s;
+    background: $color-brand-blue;
+    padding: 0 15px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    color: white;
+
+    span {
+      display: block;
+    }
+
+    a {
+      margin-top: 15px;
+      padding: 5px 10px;
+      text-decoration: none;
+      border: 1px white solid;
+      display: inline-block;
+      text-transform: uppercase;
+      font-size: 0.6em;
+
+      &:hover {
+        color: white;
+        background-color: rgba(0,0,0,0.1);
+      }
+    }
+  }
+
+  .card-image {
+    overflow: hidden;
+    max-height: 190px;
+    min-height: 190px;
+
+    img {
+      //@include transition (all 0.2s ease-in-out);
+      //background: $card-image-background;
+      //border-top-left-radius: $base-border-radius;
+      //border-top-right-radius: $base-border-radius;
+      width: 100%;
+      //padding: 10px;
+      -webkit-transition: -webkit-transform 0.4s;
+      -moz-transition: -moz-transform 0.4s;
+      transition: transform 0.4s;
+
+    }
+  }
+
+  .card-header {
+    @include transition (all 0.2s ease-in-out);
+    background-color: $card-header-background;
+    //border-bottom: $card-border;
+    //border-radius: $base-border-radius $base-border-radius 0 0;
+    //font-weight: bold;
+    //line-height: 1.5em;
+    padding: ($base-spacing / 3) ($base-spacing / 2);
+
+    h3 {
+      // margin-top: 10px;
+      margin-bottom: 0px;
+    }
+  }
+
+  .card-copy {
+    //font-size: 0.9em;
+    line-height: 1.5em;
+    padding: ($base-spacing / 2) ($base-spacing / 2);
+    p {
+      margin: 0 0 ($base-spacing / 2);
+      //font-size: 0.8em;
+      font-weight: 200;
+    }
+  }
+
+  // &:focus,
+  // &:hover {
+  //   background-color: $card-hover-background;
+
+  //   .card-image img {
+  //     background: $card-image-hover-background;
+  //   }
+
+  //   .card-header {
+  //     background-color: $card-hover-background;
+  //   }
+  // }
+
+  // &:active {
+  //   background-color: $card-background;
+
+  //   .card-header {
+  //     background-color: $card-background;
+  //   }
+  // }
+}

@@ -1,0 +1,194 @@
+// Slick Slider on the home page
+
+.home-page-slider  {
+    background-color: black;
+
+    .info {
+        text-align: center;
+        padding-top: 320px;
+        @include media($mobile) {
+          padding-top: 320px;
+        }
+
+        p {
+            color: white;
+            margin-top: 0;
+            margin-bottom: 0;
+            line-height: 1em;
+
+            &:nth-child(1) {
+                font-weight: 100;
+                font-size: 1.5em;
+                margin-bottom: 0.25em;
+                @include media($tablet) {
+                  font-size: 2.2em;
+                }
+            }
+
+            &:nth-child(2) {
+                font-size: 3em;
+                @include media($tablet) {
+                  font-size: 5em;
+                }
+                font-weight: 700;
+                font-family: 'Bebas';
+                letter-spacing: 2px;
+            }
+
+            &:nth-child(3) {
+                font-weight: 100;
+                font-size: 1.5em;
+                @include media($tablet) {
+                  font-size: 2.2em;
+                }
+            }
+        }
+
+        // Create a button mixin for learn more
+
+        a {
+            margin-top: 30px;
+            color: white;
+            border: 1px solid white;
+            padding: 5px 10px;
+            display: inline-block;
+            text-decoration: none;
+        }
+    }
+
+    .slide1, .slide2, .slide3 {
+        background-size: cover !important;
+        height: 700px;
+        background: center top no-repeat;
+    }
+}
+
+// Slick Slider
+
+.slick-dots {
+  position: absolute;
+  bottom: 30px;
+  display: block;
+  width: 100%;
+  padding: 0;
+  list-style: none;
+  text-align: center;
+
+  li {
+    position: relative;
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margin: 0 5px;
+    padding: 0;
+    cursor: pointer;
+
+    button {
+      font-size: 0;
+      line-height: 0;
+      display: block;
+      width: 20px;
+      height: 20px;
+      padding: 5px;
+      cursor: pointer;
+      color: transparent;
+      border: 0;
+      outline: none;
+      background: transparent;
+
+      &:before {
+        font-family: 'FontAwesome';
+        font-size: 20px;
+        line-height: 20px;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 20px;
+        height: 20px;
+        content: '\f111';
+        text-align: center;
+        opacity: .25;
+        color: white;
+        -webkit-font-smoothing: antialiased;
+      }
+    }
+  }
+
+  li.slick-active button:before {
+    opacity: .75;
+    color: white;
+  }
+}
+
+
+// Slick Slider on the meet page
+
+$slickslider-breakpoint: 1160px;
+
+.meet-page-slider {
+
+    @include span-columns(12);
+
+    @include media($mobile) {
+        @include span-columns(8);
+        @include shift(2);
+    }
+
+    @include media($largedesktop) {
+        @include span-columns(10);
+        @include shift(1);
+    }
+
+    img {
+      width: 100%;
+      padding-left: 15px;
+      padding-right: 15px;
+    }
+
+    .slick-dots {
+        bottom: -60px;
+
+        li button:before {
+            color: black;
+        }
+
+        li.slick-active button:before {
+            color: black;
+        }
+    }
+
+    .slick-prev, .slick-next {
+        display: inline-block;
+        position: absolute;
+        top: 30%;
+        height: 90px;
+        width: 60px;
+        border: none;
+        font-size: 0; //hide text
+        line-height: 0; //hide text
+        z-index: 100;
+    }
+
+    .slick-prev {
+        left: 0;
+        @include media($mobile) {
+          left: -70px;
+        }
+        @include media($slickslider-breakpoint) {
+          left: -100px;
+        }
+        background: url('../img/oba-left.svg');
+    }
+
+    .slick-next {
+        right: 0;
+        @include media($mobile) {
+          right: -70px;
+        }
+        @include media($slickslider-breakpoint) {
+          right: -100px;
+        }
+        background: url('../img/oba-right.svg');
+    }
+
+}

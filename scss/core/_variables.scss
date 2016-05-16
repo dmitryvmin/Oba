@@ -1,0 +1,51 @@
+// - - - - - - - - - - - - - - - - - - -
+// - - settings
+// @font-face declarations, variables
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - @font-face
+// add fonts to project as needed by updating the $fonts map below in the following format -
+// 'font-family-name': 'font-weight'
+
+// $fonts: (
+//   'font-family-one': ('font-one-light', 'font-one-dark'),
+//   'font-family-two': ('font-two-light','font-two-medium')
+// );
+
+// @each $font-family, $font-weights in $fonts {
+//   @each $font-weight in $font-weights {
+//     @font-face {
+//       name: $font-weight;
+//       src:
+//         url('/path/to/fonts/#{$font-family}/#{$font-weight}.eot?#iefix') format('embedded-opentype'),
+//         url('/path/to/fonts/#{$font-family}/#{$font-weight}.woff') format('woff'),
+//         url('/path/to/fonts/#{$font-family}/#{$font-weight}.ttf') format('truetype'),
+//         url('/path/to/fonts/#{$font-family}/#{$font-weight}.svg##{$font-weight}') format('svg');
+//     }
+//   }
+// }
+
+// - - - - - - - - - - - - - - - - - - -
+// - - variables
+
+// - - colors
+$color-brand-blue: #253B4C;
+$color-brand-yellow: #C9DD72;
+$color-brand-green: #7fcc4a;
+
+// Social
+$color-scroll-twitter: #55acee;
+$color-sidebar-facebook: #3c5a96;
+$color-sidebar-twitter: #1dadeb;
+$color-sidebar-instagram: #1178b3;
+
+// Partials:
+
+// Images
+$color-twitter-icons: $color-brand-yellow;
+
+// Footer
+$color-footer-icons: $color-brand-yellow;
+
+

@@ -1,0 +1,22 @@
+// Global
+
+ul {
+	margin: 0;
+    padding: 0;
+}
+
+// utility classes
+
+.desk {
+	display: none;
+	@include media($navigation-breakpoint) {
+		display: block;
+	}
+}
+
+.hand {
+	display: block;
+	@include media($navigation-breakpoint) {
+		display: none;
+	}
+}

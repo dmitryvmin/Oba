@@ -1,0 +1,102 @@
+// - - Website Template
+// - - Author: Dmitry Minyaylov
+
+// - - - - - - - - - - - - - - - - - - -
+// - - application.scss
+// contains an import section for libs, core, layout, and modules, the inbox,
+// and a shame section for quick fixes and hacks.
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - libs
+
+// - - reset - normalize.css v3.0.2
+@import "../bower_components/normalize-scss/_normalize";
+@import "../bower_components/font-awesome/scss/font-awesome";
+//@import "libs/bootstrap";
+//@import "libs/library-variable-overrides";
+@import "../bower_components/bourbon/app/assets/stylesheets/bourbon";
+// Neat Grid
+@import "libs/neat";
+@import "../bower_components/neat/app/assets/stylesheets/neat";
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - core
+
+@import "core/variables";
+
+// the base partial contains: typography (fonts and colors), base-level tags (body, p, etc)
+@import "core/base";
+@import "core/mixins";
+@import "core/placeholders";
+
+@import "core/global";
+
+// backgrounds, borders, box-shadow, etc
+// is there any use or this partial?....
+// @import "core/skin";
+
+// images include svgs, icons, etc.
+@import "core/images";
+
+// - - - - - - - - - - - - - - - - - - -
+// - - layout
+
+@import "layout/grid";
+//@import "layout/header";
+@import "layout/banner";
+@import "layout/footer";
+@import "layout/navigation";
+
+// - - - - - - - - - - - - - - - - - - -
+// - - components
+
+@import "components/animation";
+@import "components/loading-screen";
+@import "components/parallax";
+@import "components/hero";
+@import "components/cards";
+@import "components/overlays";
+// the interact partial should be taken out. the active classes are in the pages/interact partial
+@import "components/interact-grid";
+@import "components/slick-slider";
+@import "components/buttons";
+@import "components/instagram";
+@import "components/bootstrap-modal";
+@import "components/parallax-vid";
+@import "components/twitter-scroll";
+@import "components/newsletter";
+@import "components/video";
+@import "components/odometer";
+@import "components/forms";
+// dynamic-grid is used on the news page
+@import "components/dynamic-grid";
+@import "components/social-media";
+
+// - - - - - - - - - - - - - - - - - - -
+// - - pages / views
+
+@import "pages/home";
+@import "pages/meet";
+@import "pages/news";
+@import "pages/interact";
+@import "pages/gear";
+@import "pages/contact";
+//@import "pages/interact-new";
+
+// - - - - - - - - - - - - - - - - - - -
+// - - modules
+// add new modules to the modules/_modules.scss file and they'll get pulled in here.
+
+// @import "modules/modules";
+
+// - - - - - - - - - - - - - - - - - - -
+// - - inbox
+// the inbox allows developers, and those not actively working on the project
+// to quickly add styles that are easily seen by the maintainer of the file.
+
+
+// - - - - - - - - - - - - - - - - - - -
+// - - shame
+// need to add a quick fix, hack, or questionable technique?  add it here, fix it later.

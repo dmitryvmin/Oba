@@ -1,0 +1,91 @@
+@mixin overlay($color, $opacity: 0.5) {
+  background: rgba($color, $opacity);
+}
+
+
+@mixin spacer($val, $type:'padding', $scale: 2) {
+  // Usage:
+  // @include spacer(10px 2em 100vh, margin, 4);
+  // or
+  // @include spacer(10px 2em 100vh);
+  @if $val != 0 and $val != false {
+    $keys: top left bottom right;
+    $vals: 0 0 0 0;
+    @if length($val) == 1 {
+      $vals: $val $val $val $val;
+    } @else if length($val) == 2 {
+      $vals: nth($val, 1) nth($val, 2) nth($val, 1) nth($val, 2);
+    } @else if length($val) == 3 {
+      $vals: nth($val, 1) nth($val, 2) nth($val, 3) nth($val, 2);
+    } @else if length($val) > 3 {
+      $vals: nth($val, 1) nth($val, 2) nth($val, 3) nth($val, 4);
+    }
+    @for $i from 1 through 4 {
+      @if nth($vals, $i) != 0 {
+        #{$type}-#{nth($keys, $i)}: nth($vals, $i);
+      }
+    }
+    @media (max-width: $mobile) {
+      @for $i from 1 through 4 {
+        @if nth($vals, $i) != 0 {
+          #{$type}-#{nth($keys, $i)}: nth($vals, $i) / $scale;
+        }
+      }
+    }
+  }
+}
+
+
+
+// vendor prefixes
+
+@mixin translate($x, $y) {
+  -webkit-transform: translate($x, $y);
+      -ms-transform: translate($x, $y); // IE9 only
+       -o-transform: translate($x, $y);
+          transform: translate($x, $y);
+}
+@mixin translate3d($x, $y, $z) {
+  -webkit-transform: translate3d($x, $y, $z);
+          transform: translate3d($x, $y, $z);
+}
+
+// transitions
+
+@mixin transition-transform($transition...) {
+  -webkit-transition: -webkit-transform $transition;
+     -moz-transition: -moz-transform $transition;
+       -o-transition: -o-transform $transition;
+          transition: transform $transition;
+}
+
+// drop shadows
+
+@mixin box-shadow($shadow...) {
+  -webkit-box-shadow: $shadow; // iOS <4.3 & Android <4.1
+          box-shadow: $shadow;
+}
+
+// opacity
+
+@mixin opacity($opacity) {
+  opacity: $opacity;
+  // IE8 filter
+  $opacity-ie: ($opacity * 100);
+  filter: alpha(opacity=$opacity-ie);
+}
+
+
+// Transitions
+
+
+// transitions
+
+@mixin transition-1($property, $speed) {
+  -webkit-transition: $property $speed ease-out;
+     -moz-transition: $property $speed ease-out;
+       -o-transition: $property $speed ease-out;
+          transition: $property $speed ease-out;
+}
+
+

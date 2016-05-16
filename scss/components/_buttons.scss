@@ -1,0 +1,162 @@
+// Buttons
+
+.button-base {
+    margin: 0;
+    border: 0;
+    font-size: 18px;
+    margin: 15px auto;
+    width: 200px;
+    height: 50px;
+    text-align: center;
+    box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-user-select: none;
+    cursor: default;
+
+    &:hover {
+        cursor: pointer;
+    }
+}
+
+.button-flip {
+    perspective: 500px;
+    -webkit-perspective: 500px;
+    -moz-perspective: 500px;
+    transform-style: preserve-3d;
+    -webkit-transform-style: preserve-3d;
+
+    div {
+        position: absolute;
+        text-align: center;
+        width: 100%;
+        height: 50px;
+        padding: 10px;
+        pointer-events: none;
+        box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        text-transform: uppercase;
+
+        &:nth-child(1) {
+        transform: translateZ(0px);
+        -webkit-transform: translateZ(0px);
+        -moz-transform: translateZ(0px);
+        transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        transform-origin: 50% 50% -25px;
+        -webkit-transform-origin: 50% 50% -25px;
+        -moz-transform-origin: 50% 50% -25px;
+
+            &.dark {
+                color: #fff;
+                border: #fff solid 2px;
+            }
+
+            &.light {
+                color: $color-brand-blue;
+                border: $color-brand-blue solid 2px;
+            }
+        }
+
+        &:nth-child(2) {
+            transform: rotateX(90deg);
+            -webkit-transform: rotateX(90deg);
+            -moz-transform: rotateX(90deg);
+            transition: all 0.2s ease 0.05s;
+            -webkit-transition: all 0.2s ease 0.05s;
+            -moz-transition: all 0.2s ease 0.05s;
+            transform-origin: 50% 50% -25px;
+            -webkit-transform-origin: 50% 50% -25px;
+            -moz-transform-origin: 50% 50% -25px;
+            visibility: hidden;
+
+            &.dark {
+                color: #fff;
+                background-color: #000;
+            }
+
+            &.light {
+                color: #fff;
+                background-color: $color-brand-blue;
+            }
+
+            &.green {
+                color: #fff;
+                background-color: $color-brand-green;
+            }
+        }
+    }
+
+    &:hover div:nth-child(1) {
+        transition: all 0.2s ease;
+        -webkit-transition: all 0.2s ease;
+        -moz-transition: all 0.2s ease;
+        transform: translateZ(-200px);
+        -webkit-transform: translateZ(-200px);
+        -moz-transform: translateZ(-200px);
+    }
+
+
+    &:hover div:nth-child(2) {
+        transition: all 0.2s ease 0.05s;
+        -webkit-transition: all 0.2s ease 0.05s;
+        -moz-transition: all 0.2s ease 0.05s;
+        transform: rotateX(0deg);
+        -webkit-transform: rotateX(0deg);
+        -moz-transform: rotateX(0deg);
+        visibility: inherit;
+    }
+}
+
+
+
+// Instagram 'see more' button
+
+.instagram-button {
+    background-color: transparent;
+    color: white;
+    // border: white 1px solid;
+    text-transform: uppercase;
+    // display: block;
+    // margin: 30px auto;
+    // position: absolute;
+    // left: 50%;
+    // transform: translateX(-50%);
+    border: none;
+    font-size: 12px;
+    display: block;
+    margin: 2em auto;
+
+    &:before {
+        font-family: FontAwesome;
+        content: '\f067';
+        color: white;
+        margin-right: 10px;
+    }
+}
+
+// Default buttons used for newsletter and contact forms
+
+.btn {
+  position: relative;
+  display: block;
+  color: #fff;
+  padding: 12px;
+  border: 0;
+  background-color: $color-brand-blue !important;
+  box-shadow: 0 3px 1px -2px rgba(0, 0, 0, .3) !important;
+  transition: opacity .4s ease;
+  cursor: pointer;
+  width: 150px;
+  @include media($tablet) {
+    width: 100%;
+  }
+}
+
+// contact form
+form.contactForm .btn {
+    width: 150px !important;
+    margin-top: 1em;
+}

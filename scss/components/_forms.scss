@@ -1,0 +1,150 @@
+// Forms
+
+// these variable are only for the form
+$base: white;
+$text: white;
+$invalid: #E91E63;
+$width: 400px;
+$cubic: cubic-bezier(.64,.09,.08,1);
+
+// Contact Form
+form.contactForm {
+  margin: 0 auto;
+  @include media($mobile) {
+    margin-top: 6em;
+  }
+  color: $text;
+
+  span.error {
+    color: $invalid;
+  }
+  .submissionMessage {
+    padding: 12px;
+    text-align: left;
+    display: block;
+    padding: 1em 0;
+    color: $color-brand-green;
+  }
+      input::-webkit-input-placeholder, textarea::-webkit-input-placeholder {
+          transition: transform 0.3s ease-in-out, font-size 0.3s ease-in-out, visibility 0.3s ease-in-out;
+      }
+
+      input, textarea {
+
+          $underline: '../img/underline.svg', '../img/underline2.svg', '../img/underline3.svg', '../img/underline4.svg';
+
+          margin: 0 0 10px 0;
+          //width: $width;
+          width: 100%;
+          display: block;
+          border: none;
+          padding: 20px 0 10px;
+          //border-bottom: solid 1px $base;
+          //background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $base 4%);
+          //background-position: -$width 0;
+          //background-size: $width 100%;
+          //background-repeat: no-repeat;
+          //transition: background 0.3s $cubic;
+          resize: none;
+          overflow: hidden;
+          background-color: transparent;
+
+              @for $i from 1 through length($underline) {
+
+                  &:nth-child(#{$i}) {
+                      $background-from-list: nth($underline, $i);
+                      background: url($background-from-list) no-repeat bottom left;
+                  }
+              }
+
+          &:focus::-webkit-input-placeholder {
+              color: $base;
+          }
+
+          &:focus, &:valid {
+              box-shadow: none;
+              outline: none;
+              //background-position: 0 0;
+
+              &::-webkit-input-placeholder {
+                  font-size: 0.8em;
+                  transform: translateY(-20px);
+                  visibility: visible !important;
+                  opacity: 1;
+              }
+          }
+      }
+
+      // input[type="email"] {
+      //     // background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $base 4%);
+      //     //background-position: -400px 0;
+      //     //background-repeat: no-repeat;
+      //     //transition: border-bottom 0.3s ease, background 0.3s ease;
+      //     background-color: transparent;
+
+      //     &~span.validation-text {
+      //         position: absolute;
+      //         visibility: hidden;
+      //         font-size: 0.6em;
+      //         width: $width;
+      //         margin-left: 25px;
+      //         margin-top:-5px;
+      //         color: white;
+      //         transition: color 0.3s ease-in-out;
+      //     }
+
+      //     &:not([value=""]) {
+
+      //         &::-webkit-input-placeholder {
+      //             font-size: 0.8em;
+      //             transform: translateY(-20px);
+      //             visibility: visible !important;
+      //             opacity: 1;
+      //         }
+
+      //         &:focus::-webkit-input-placeholder {
+      //             color: $base;
+      //         }
+
+      //         &:focus:not(:valid)::-webkit-input-placeholder {
+      //             color: $invalid;
+      //         }
+      //     }
+
+      //     // &:focus {
+      //     //     background-position: 0 0;
+
+      //     //     &:not(:valid):not([value=""]) {
+      //     //         border-bottom: solid 1px $invalid;
+      //     //         background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $invalid 4%);
+      //     //     }
+      //     // }
+
+      //     &:not(:focus):not(:valid):not([value=""]) {
+
+      //         &::-webkit-input-placeholder {
+      //             color: $invalid;
+      //         }
+
+      //         // border-bottom: solid 1px $invalid;
+      //         // background-position: 0 0 ;
+      //         // background: linear-gradient(to bottom, rgba(255,255,255,0) 96%, $invalid 4%);
+
+      //         &~span.validation-text {
+      //             visibility: visible;
+      //             color: $invalid;
+      //         }
+      //     }
+      // }
+
+      .flex {
+          display: flex;
+          align-items: stretch;
+
+          textarea {
+              line-height: 120%;
+          }
+      }
+  }
+
+

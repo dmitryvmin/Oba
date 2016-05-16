@@ -1,0 +1,177 @@
+
+// home page parallax window
+.home-quote {
+      background-color: rgba(0,0,0,0.6);
+
+      p {
+        font-weight: 100;
+        color: white;
+        padding: 3em 2em;
+        margin: 0;
+        font-size: 1.5em;
+        margin-top: 0;
+        line-height: 1.5em;
+        text-align: center;
+
+        // @include media($large-screen) {
+        //   font-size: 1.1em;
+        //   max-width: 40%;
+        // }
+      }
+
+}
+// Header parallax
+
+// Meet Oba
+.parallax-window {
+    min-height: 400px;
+    background: transparent;
+    overflow: hidden;
+}
+
+// .parallax-meet-window {
+//     min-height: 400px;
+//     background: transparent;
+//     overflow: hidden;
+// }
+
+// used to cover the parallax bleed on the meet oba page
+
+.parallax-bleed-cover {
+  background-color: white;
+}
+
+
+// Angular
+// Header section for all the pages
+
+$header-height: 400px;
+
+.parallax {
+  position:absolute;
+  left: 0;
+  top: 0;
+}
+
+.photo {
+  background-attachment: fixed;
+  background-repeat: no-repeat;
+  height: $header-height;
+  position: relative;
+  background-size: cover;
+  background-position: 50% 60px;
+
+  @include media($desktop-max) {
+    background-position: 50% 0 !important;
+  }
+}
+
+.overlay {
+  position: absolute;
+  width: 100%;
+  height: $header-height;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 100;
+}
+
+// Meet Oba quotes
+
+.meet-quote {
+  width: 100%;
+  @include media($largedesktop) {
+    width: 900px;
+  }
+  margin: 0 auto;
+  background-repeat: no-repeat;
+  position: relative;
+  background-attachment: fixed;
+
+  img {
+    display: block;
+    margin: 0 auto;
+    width: 100%;
+    @include media($desktop-max) {
+      background: rgb(37,59,76); /* Old browsers */
+      background: -moz-linear-gradient(45deg, rgba(37,59,76,1) 28%, rgba(201,221,114,1) 100%); /* FF3.6+ */
+      background: -webkit-gradient(linear, left bottom, right top, color-stop(28%,rgba(37,59,76,1)), color-stop(100%,rgba(201,221,114,1))); /* Chrome,Safari4+ */
+      background: -webkit-linear-gradient(45deg, rgba(37,59,76,1) 28%,rgba(201,221,114,1) 100%); /* Chrome10+,Safari5.1+ */
+      background: -o-linear-gradient(45deg, rgba(37,59,76,1) 28%,rgba(201,221,114,1) 100%); /* Opera 11.10+ */
+      background: -ms-linear-gradient(45deg, rgba(37,59,76,1) 28%,rgba(201,221,114,1) 100%); /* IE10+ */
+      background: linear-gradient(45deg, rgba(37,59,76,1) 28%,rgba(201,221,114,1) 100%); /* W3C */
+    }
+    background: none;
+  }
+}
+
+.meet-quote-one {
+  background-image: url(../img/meet/quote-bgimg/quote-bgimg-one-min.jpg);
+}
+
+.meet-quote-two {
+  background-image: url(../img/meet/quote-bgimg/quote-bgimg-three-min.jpg);
+}
+
+// Bourbon Parallax
+
+$parallax-window-height: 30em;
+$parallax-background-height: $parallax-window-height * 2;
+
+.parallax-window {
+  max-height: $parallax-window-height;
+  overflow: hidden;
+  position: relative;
+  text-align: center;
+  width: 100%;
+}
+
+.parallax-static-content {
+  color: #9A9A8A;
+  padding: 8em 0;
+  position: relative;
+  z-index: 9;
+}
+
+.parallax-background {
+  background: url("https://raw.githubusercontent.com/thoughtbot/refills/master/source/images/mountains.png") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}
+
+.parallax-quote-window {
+  max-height: $parallax-window-height;
+  width: 920px;
+  background: 0 0;
+  max-height: 30em;
+  overflow: hidden;
+  position: relative;
+  margin: 0 auto;
+}
+
+.parallax-quote-static-content {
+  position: relative;
+  z-index: 9;
+
+  img {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+  }
+}
+
+.parallax-quote-background {
+  background: url("../img/oba-meet-header.jpg") repeat;
+  background-position: top;
+  background-size: cover;
+  background-color: beige;
+  height: $parallax-background-height;
+  left: 0;
+  position: absolute;
+  top: - $parallax-window-height / 3;
+  width: 100%;
+}

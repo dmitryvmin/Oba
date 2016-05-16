@@ -1,0 +1,84 @@
+// clean up this partial....
+
+#latest-tweets {
+    background: $color-brand-blue;
+    //border: 1px solid #eaeaea;
+    padding: 5px 15px;
+    font-size: 14px;
+    overflow: hidden;
+    color: white;
+    //font-family: 'Open Sans', sans-serif;
+
+    a {
+        color: $color-brand-yellow;
+        text-decoration: inherit;
+        font-style: italic;
+
+        &:hover {
+            color: darken($color-brand-yellow, 20%);
+        }
+    }
+
+    .fa-twitter {
+        -webkit-font-smoothing: antialiased;
+        color: $color-scroll-twitter;
+        font-size: 14px;
+        padding-right: 15px;
+    }
+
+    ul {
+        margin: 0;
+        padding: 0;
+        list-style: none;
+        white-space: nowrap;
+        float: left; /* This makes the ul the full width of the children */
+        padding-left: 110%;  /* show the marquee just outside the paragraph */
+        -webkit-animation: marquee 260s linear infinite;
+        -moz-animation: marquee 260s linear infinite;
+        -o-animation: marquee 260s linear infinite;
+        animation: marquee 260s linear infinite;
+        &:hover {
+            -webkit-animation-play-state: paused;
+            -moz-animation-play-state: paused;
+            -o-animation-play-state: paused;
+            animation-play-state: paused;
+        }
+
+        li {
+            display: inline-block;
+            margin: 0 20px 0 0;
+
+            p {
+                margin: 0;
+                font-family: 'Open Sans', sans-serif;
+                font-weight: 300;
+                -webkit-font-smoothing: antialiased;
+            }
+
+            .user, .timePosted, p.interact {
+                display: none;
+            }
+        }
+    }
+}
+
+/* Make it move */
+@-webkit-keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@-moz-keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@-o-keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+@-keyframes marquee {
+    0%   { transform: translateX(0); }
+    100% { transform: translateX(-100%); }
+}
+.tweet img {
+    display: none;
+}

@@ -1,0 +1,122 @@
+// Themed Twitter Icons (used primarily on the interact page)
+
+.twitter-reply-icon, .twitter-retweet-icon, .twitter-fav-icon {
+    text-align: center;
+    font-size: 0px;
+    width: calc(100% / 3);
+    display: inline-block;
+    text-decoration: none;
+
+    &:before {
+        font-size: 22px;
+        font-family: "Fontawesome";
+        -webkit-font-smoothing: antialiased;
+        padding-right: 4px;
+        color: white;
+        @include transition-1(color, 0.5s);
+    }
+
+    &:hover:before {
+        color: $color-twitter-icons;
+    }
+}
+
+.twitter-reply-icon:before {
+  content: '\f112';
+}
+.twitter-retweet-icon:before {
+  content: '\f079';
+}
+.twitter-fav-icon:before {
+  content: '\f005';
+}
+
+
+// Standard Social Icons
+
+ul.sidebar-social-links {
+  position: fixed;
+  left: 0;
+  padding: 0;
+  list-style: none;
+  z-index: 400;
+  font-size: 1.4em;
+  top: 50%;
+  display: none;
+  @include media($tablet) {
+    display: block;
+  }
+
+  li {
+
+    a.sidebar-social-facebook {
+      background-color: $color-sidebar-facebook;
+
+      &:hover {
+        background-color: darken($color-sidebar-facebook, 5%);
+      }
+    }
+
+    a.sidebar-social-twitter {
+      background-color: $color-sidebar-twitter;
+
+      &:hover {
+        background-color: darken($color-sidebar-twitter, 5%);
+      }
+    }
+
+    a.sidebar-social-instagram {
+      background-color: $color-sidebar-instagram;
+
+      &:hover {
+        background-color: darken($color-sidebar-instagram, 5%);
+      }
+    }
+
+    a.sidebar-social-email {
+      background-color: $color-sidebar-facebook;
+
+      &:hover {
+        background-color: darken($color-sidebar-facebook, 5%);
+      }
+    }
+
+    a {
+      display: block;
+      text-decoration: none;
+
+      &:hover {
+        color: white;
+      }
+
+      i {
+        display: block;
+        -webkit-transition:  background .2s ease-in-out;
+        -moz-transition:  background .2s ease-in-out;
+        -o-transition:  background .2s ease-in-out;
+        transition:  background .2s ease-in-out;
+        padding: 8px;
+        @include media($mobile) {
+          bottom: 10px;
+        }
+      }
+    }
+  }
+}
+
+.social-icon {
+  a {
+
+    i {
+      color: black;
+    }
+
+    &:hover, &:active {
+      color: black;
+
+      i {
+        color: black;
+      }
+    }
+  }
+}

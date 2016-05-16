@@ -1,0 +1,63 @@
+// TODO: convert to SCSS and clean up
+
+.field-container,
+.controls-container {
+  position: relative;
+  margin: 0 auto;
+}
+
+.field-container {
+  margin-bottom: 10px;
+}
+
+.field-container label {
+  display: none;
+}
+
+.field-container input {
+  display: block;
+  width: 100%;
+  border: none;
+  //border: 1px solid $color-brand-blue;
+  //color: rgba(255,255,255,.4);
+  background-color: transparent;
+  background: url(../img/underline4.svg) bottom left no-repeat;
+  padding: 10px 0 15px;
+  //box-shadow: 0 1px 2px -1px rgba(0,0,0,.3);
+  outline: none;
+
+  &:active, &:focus {
+    border: none;
+    //border: 1px solid rgba(255,255,255, 1);
+    color: rgba(255,255,255, 1);
+  }
+}
+
+.field-container i {
+  position: absolute;
+  font-size: 1.4em;
+  color: #6ACAC3;
+  top: 16px;
+  right: 15px;
+
+  transition: color .4s ease;
+}
+
+.field-container input:focus:invalid ~ i {
+  color: white;
+}
+
+.field-container input:focus:valid ~ i {
+  color: white;
+}
+
+
+.controls-container input:hover,
+.controls-container input:focus {
+  opacity: 1;
+}
+
+.controls-container input:active {
+  box-shadow: none;
+  top: 1px;
+}

@@ -1,0 +1,82 @@
+// Breakpoints
+// TODO: carry the neat.scss grid media queries varibales to the variables partial
+
+//@import "../../bower_components/neat/app/assets/stylesheets/neat";
+@import "../../bower_components/neat/app/assets/stylesheets/neat-helpers";
+
+// debugging
+// $visual-grid: true;
+
+// ------------------------------------------------------------
+// Override Neat's grid settings
+// ------------------------------------------------------------
+
+// $column: golden-ratio(1em, 3) !default; // Column width
+// $gutter: golden-ratio(1em, 3) !default; // Gutter between each two columns
+
+// ------------------------------------------------------------
+// Set Bourbon's flex-grid variables to match what Neat is doing
+// http://bourbon.io/docs/#flex-grid
+// ------------------------------------------------------------
+
+// $fg-column: $column;
+// $fg-gutter: $gutter;
+
+// ------------------------------------------------------------
+// Omega Reset
+// ------------------------------------------------------------
+
+// @mixin omega-reset($nth) {
+//   &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+//   &:nth-child(#{$nth}+1) { clear: none }
+// }
+
+// Widths
+// $mobile-width: em(480);
+// $small-tablet-width: em(760);
+// $large-tablet-width: em(960);
+// $desktop-width: em(1080);
+
+// Bourbon Neat Breakpoints
+// $mobile: new-breakpoint(max-width $mobile-width, 12);
+// $small-tablet: new-breakpoint(min-width $small-tablet-width max-width $large-tablet-width - 1, 12);
+// $large-tablet: new-breakpoint(min-width $large-tablet-width max-width $desktop-width - 1, 12);
+// $tablet: new-breakpoint(min-width $small-tablet-width max-width $desktop-width - 1, 12);
+// $desktop: new-breakpoint(min-width $desktop-width, 12);
+
+// $small-tablet-down: new-breakpoint(max-width $large-tablet-width, 8);
+// $tablet-down: new-breakpoint(max-width $desktop, 8);
+
+// $column: modular-scale(3, 1em, $golden) !default;
+// $gutter: modular-scale(1, 1em, $golden) !default;
+// $gutter: 0;
+
+// move to the variables partial
+$fg-column: $column;
+$fg-gutter: $gutter;
+
+// Omega reset
+// http://www.joshfry.me/blog/2013/05/13/omega-reset-for-bourbon-neat/
+@mixin omega-reset($nth) {
+  &:nth-child(#{$nth}) { margin-right: flex-gutter(); }
+  &:nth-child(#{$nth}+1) { clear: none }
+}
+
+$mobile-size: 480px;
+$tablet-size: 720px;
+$desktop-size: 960px;
+$largedesktop-size: 1060px;
+
+// Bourbon Neat Breakpoints
+$mobile: new-breakpoint(min-width $mobile-size 12);
+$tablet: new-breakpoint(min-width $tablet-size 12);
+$desktop: new-breakpoint(min-width $desktop-size 12);
+$largedesktop: new-breakpoint(min-width $largedesktop-size 12);
+
+$mobile-max: new-breakpoint(max-width $mobile-size);
+$tablet-max: new-breakpoint(max-width $tablet-size);
+$desktop-max: new-breakpoint(max-width $desktop-size);
+$largedesktop-max: new-breakpoint(max-width $largedesktop-size);
+
+$navigation-breakpoint: em(860) !default;
+$navigation-breakpoint-max: new-breakpoint(max-width $navigation-breakpoint);

@@ -390,7 +390,7 @@ th {
 
 .fa {
   display: inline-block;
-  font: normal normal normal 14px / 1 FontAwesome;
+  font: normal normal normal 14px/1 FontAwesome;
   font-size: inherit;
   text-rendering: auto;
   -webkit-font-smoothing: antialiased;
@@ -4682,7 +4682,6 @@ section.interact-container {
         background-size: cover !important; }
       .interact-tweets li .tweet-bg.default-img {
         background-position: center !important;
-        background-size: 50% !important;
         -webkit-transition: all 1s ease-out;
         -moz-transition: all 1s ease-out;
         -o-transition: all 1s ease-out;
@@ -5100,33 +5099,3 @@ section.interact-container {
     .contact-oba .close-out img {
       float: right;
       margin: 20px; }
-
-h2.mls-stats {
-  font-size: 2em;
-  text-align: center;
-  margin: 0;
-  padding-top: 1em; }
-
-.language-btn-ch, .language-btn-en {
-  background: none;
-  border: none;
-  color: white;
-  font-size: 20px;
-  height: 24px;
-  width: 36px;
-  display: inline-block;
-  vertical-align: middle; }
-
-.language-btn-ch {
-  background: url("../img/lang/cn.png"); }
-
-.language-btn-en {
-  background: url("../img/lang/en.png"); }
-
-/*
-  Allow angular.js to be loaded in body, hiding cloaked elements until
-  templates compile.  The !important is important given that there may be
-  other selectors that are more specific or come later and might alter display.
- */
-[ng\:cloak], [ng-cloak], .ng-cloak {
-  display: none !important; }

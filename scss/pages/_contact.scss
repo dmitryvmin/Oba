@@ -1,0 +1,72 @@
+// Contact page
+
+
+.contact-oba {
+    position: fixed;
+    z-index: 10000;
+    top: 0;
+    left: 0;
+    -webkit-transition: 1ms opacity ease;
+    -moz-transition: 1ms opacity ease;
+    -ms-transition: 1ms opacity ease;
+    -o-transition: 1ms opacity ease;
+    transition: 1ms opacity ease;
+    background-color: rgba(0,0,0,0.9);
+    height: 100%;
+    width: 100%;
+
+    h2 {
+        color: white;
+        text-align: center;
+        font-size: 40px;
+        margin: 15px 0;
+    }
+
+    section {
+
+        @include outer-container(90%);
+        @include media($tablet) {
+            @include outer-container;
+        }
+        .contact-image {
+            display: none;
+
+            @include media($tablet) {
+                @include span-columns(6);
+                @include omega(2n);
+                display: block;
+            }
+
+            img {
+                width: 100%;
+                margin-top: 80px;
+                opacity: 1;
+            }
+        }
+
+        .contact-box {
+
+            @include span-columns(12);
+
+            @include media($tablet) {
+                @include span-columns(6);
+                @include omega(2n);
+            }
+
+            h2 {
+                color: white;
+            }
+
+        }
+    }
+
+    .close-out {
+        margin: 20px;
+        cursor: pointer;
+
+        img {
+            float: right;
+            margin: 20px;
+        }
+    }
+}
