@@ -70,7 +70,7 @@ angular.module('obaApp')
         scope: {
             inttweets: '=inttweets'
         },
-        template: '<ul><li ng-repeat="tweet in inttweets"><p class="tweet" ng-bind-html="tweet.html">{{tweet.html}}</p></li></ul>'
+        template: '<ul><li ng-repeat="tweet in inttweets"><p class="tweet" ng-bind-html="tweet.html">{{tweet.html}}</p><div class="date timePosted">{{tweet.updated}}</div><p class="interact"><a href="{{tweet.permalink}}" class="twitter-reply-icon">Reply</a><a href="{{tweet.permalink}}" class="twitter-retweet-icon">Retweet</a><a href="{{tweet.permalink}}" class="twitter-fav-icon">Favorite</a></p><div class="tweet-bg default-img" style="background: url({{tweet.inlineMedia.url}}) no-repeat;"></div></li>'
         // ,link: function(scope, elem, attrs) {
         //     // scope.$watch('locations', function(locations) {
         //     //     angular.forEach(locations, function(location, key) {

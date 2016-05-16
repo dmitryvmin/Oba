@@ -123,7 +123,27 @@ angular.module('obaApp')
                 tweet.updated = dateFormatter(el.getElementsByClassName('dt-updated')[0].innerText);
                 tweet.permalink = el.getElementsByClassName('timeline-Tweet-timestamp')[0].getAttribute('href');
                 if (el.getElementsByClassName('timeline-Tweet-media')[0]) {
-                  tweet.inlineMedia = el.getElementsByClassName('timeline-Tweet-media')[0].innerHTML;
+                    //debugger;
+                  var rawStr = el.getElementsByClassName('timeline-Tweet-media')[0]
+                    .getElementsByTagName('img')[0];
+                  var srcStr = rawStr.dataset.srcset || rawStr.getAttribute('src');
+                  var cutStr;
+                  if (srcStr.indexOf(' ') != -1) {
+                    cutStr = srcStr.substr(0,srcStr.indexOf(' '));
+                  } else {
+                    cutStr = srcStr;
+                  }
+                  var decodedStr = decodeURIComponent(cutStr);
+                  tweet.inlineMedia = {
+                    html: el.getElementsByClassName('timeline-Tweet-media')[0].innerHTML,
+                    url: decodedStr
+
+                  }
+                } else {
+                    tweet.inlineMedia = {
+                        html: '',
+                        url: 'img/theme/twitter-icon.png'
+                    }
                 }
                 response.tweets.push(tweet);
               }

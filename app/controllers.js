@@ -276,7 +276,7 @@ angular.module('obaApp')
         .then(function(data) {
             $scope.inttweets = data.tweets;
             $scope.twitter_json_ready = true;
-            debugger;
+            //debugger;
         });
 
     // $scope.inTweetsReady = dataService.getBool();
